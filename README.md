@@ -95,34 +95,34 @@ Description: The function helps in sending back the node data across the channel
 Kindly enter the commands in the format below for testing and running the program,please do note the we have few commented code for testing in the program itself which might help you in testing the functions.
 
 ```
-	ex2 := Exchange{"find-ring-successor", 1, 1, 1, "EMPTY", Communication_holder, 0}
-	sending_request(ex2)
-	time.Sleep(1 * time.Second)
-	err := json.Unmarshal(<-output_channel[1], &node_data)
-	if err != nil {
-		panic(err)
-	}
-	x := *node_data
-	fmt.Println("The successor of the node is:", x)
+ex2 := Exchange{"find-ring-successor", 1, 1, 1, "EMPTY", Communication_holder, 0}
+sending_request(ex2)
+time.Sleep(1 * time.Second)
+err := json.Unmarshal(<-output_channel[1], &node_data)
+if err != nil {
+	panic(err)
+}
+x := *node_data
+fmt.Println("The successor of the node is:", x)
  
  
-	ex4 := Exchange{"join-ring", 8, 8, 1, "EMPTY", Communication_holder, 0}
-	sending_request(ex4)
-	time.Sleep(1 * time.Second)
-	ex5 := Exchange{"join-ring", 14, 14, 8, "EMPTY", Communication_holder, 0}
-	sending_request(ex5)
-	time.Sleep(1 * time.Second)
+ex4 := Exchange{"join-ring", 8, 8, 1, "EMPTY", Communication_holder, 0}
+sending_request(ex4)
+time.Sleep(1 * time.Second)
+ex5 := Exchange{"join-ring", 14, 14, 8, "EMPTY", Communication_holder, 0}
+sending_request(ex5)
+time.Sleep(1 * time.Second)
  
  
- Communication_holder.Key_1 = 1
-	Communication_holder.Values = "Rajat"
-	ex8 := Exchange{"put-data", 21, 1, 21, "EMPTY", Communication_holder, 0}
-	sending_request(ex8)
-	time.Sleep(1 * time.Second)
-	Communication_holder.Key_1 = 1
-	ex9 := Exchange{"get-data", 21, 1, 21, "EMPTY", Communication_holder, 0}
-	sending_request(ex9)
-	time.Sleep(1 * time.Second)
+Communication_holder.Key_1 = 1
+Communication_holder.Values = "Rajat"
+ex8 := Exchange{"put-data", 21, 1, 21, "EMPTY", Communication_holder, 0}
+sending_request(ex8)
+time.Sleep(1 * time.Second)
+Communication_holder.Key_1 = 1
+ex9 := Exchange{"get-data", 21, 1, 21, "EMPTY", Communication_holder, 0}
+sending_request(ex9)
+time.Sleep(1 * time.Second)
 
  ```
 
